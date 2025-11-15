@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  font-feature-settings: 'ss01' on, 'ss03' on;
+  background-color: #020617;
+}
+
+.grid-bg {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(0, 102, 255, 0.4), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(255, 68, 68, 0.3), transparent 30%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+}
+
+.custom-marker-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.custom-marker-wrapper .marker-core {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  border: 3px solid rgba(15, 23, 42, 0.8);
+  transform-origin: center;
+}
+
+.custom-marker-wrapper .marker-priority {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(2, 6, 23, 0.8);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.custom-marker-wrapper:hover .marker-core {
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.marker-pulse {
+  animation: markerPulse 2s infinite;
+}
+
+@keyframes markerPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
